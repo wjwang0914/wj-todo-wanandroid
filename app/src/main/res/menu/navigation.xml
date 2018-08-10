@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_todo"
+        android:icon="@drawable/ic_todo"
+        android:title="@string/to_do_list" />
+    <item
+        android:id="@+id/navigation_complete"
+        android:icon="@drawable/ic_complete"
+        android:title="@string/complete_list" />
+    <item
+        android:id="@+id/navigation_setting"
+        android:icon="@drawable/ic_setting"
+        android:title="@string/setting" />
+</menu>

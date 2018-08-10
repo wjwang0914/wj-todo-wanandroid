@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">TODO</string>
+    <string name="loading">正在加载中……</string>
+    <string name="service_error">服务器开小差，请稍候重试</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_account">账号</string>
+    <string name="prompt_password">密码</string>
+    <string name="sign_in">登录</string>
+    <string name="register_message">还没账号，点击注册</string>
+    <string name="input_account">请输入账号</string>
+    <string name="input_password">请输入密码</string>
+    <string name="to_do_list">待办清单</string>
+    <string name="complete_list">完成清单</string>
+    <string name="splash_message">高效率&#160;慢生活</string>
+    <string name="setting">设置</string>
+    <string name="register">注册</string>
+    <string name="input_repassword">请输入确认密码</string>
+    <string name="valid_repassword">两次输入的密码不一致</string>
+    <string name="register_success">注册成功</string>
+    <string name="input_todo_name">输入待办名称，如：准备演示PPT</string>
+    <string name="input_todo_des">输入待办详情，非必填，如：\n1、制作演示PPT\n2、预定会议室\n3、通知参加会议人员\n4、提前10分钟准备会议环境</string>
+    <string name="save">保存</string>
+    <string name="add_todo">添加待办清单</string>
+    <string name="input_todo_name_toast">请输入待办名称</string>
+    <string name="add_todo_success">添加成功</string>
+    <string name="delete_todo_success">删除成功</string>
+    <string name="done_todo_success">标记完成</string>
+    <string name="notdo_todo_success">撤销完成</string>
+    <string name="done_todo_date">完成时间：%s</string>
+    <string name="account_name">账号信息</string>
+    <string name="modify_password">修改密码</string>
+    <string name="my_github_url">https://github.com/wjwang0914</string>
+    <string name="my_github_name">github</string>
+    <string name="api_support_name">API</string>
+    <string name="api_support_url">http://www.wanandroid.com/</string>
+</resources>
