@@ -34,4 +34,7 @@
     <string name="my_github_name">github</string>
     <string name="api_support_name">API</string>
     <string name="api_support_url">http://www.wanandroid.com/</string>
+    <string name="no_text">本宝宝暂时还没有想到详细信息</string>
+    <string name="todo_name">待办名称</string>
+    <string name="todo_des">待办详细</string>
 </resources>

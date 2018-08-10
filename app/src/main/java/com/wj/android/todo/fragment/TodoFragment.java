@@ -2,11 +2,13 @@ package com.wj.android.todo.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.wj.android.todo.R;
@@ -130,6 +132,13 @@ public class TodoFragment extends BaseFragment {
                         }
                     }
                 });
+                mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                        TodoSection todoSection = mAdapter.getData().get(position);
+                        showTodoDes(todoSection);
+                    }
+                });
                 mAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_BOTTOM);
                 mRecyclerView.setAdapter(mAdapter);
             } else {
@@ -138,6 +147,23 @@ public class TodoFragment extends BaseFragment {
             }
 
         }
+    }
+
+    private void showTodoDes(TodoSection todoSection) {
+        View view = View.inflate(getContext(),R.layout.dialog_todo_des_view, null);
+        TextView todoName = view.findViewById(R.id.todo_name);
+        todoName.setText(todoSection.t.getTitle());
+        TextView todoContent = view.findViewById(R.id.todo_content);
+        if (TextUtils.isEmpty(todoSection.t.getContent())) {
+            todoContent.setText(R.string.no_text);
+        } else {
+            todoContent.setText(todoSection.t.getContent());
+        }
+        BottomSheetDialog sheetDialog = new BottomSheetDialog(getContext());
+        sheetDialog.setContentView(view);
+        sheetDialog.show();
+
+
     }
 
     private List<TodoSection> getTodoSectionData(List<TodoDesBean> datas) {

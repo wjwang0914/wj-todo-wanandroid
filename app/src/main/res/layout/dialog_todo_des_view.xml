@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:text="@string/todo_name"/>
+    <TextView
+        android:id="@+id/todo_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="#767676"
+        android:layout_marginTop="5dp"
+        android:text="@string/input_todo_name"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="5dp"
+        android:background="#E4E4E4"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="@string/todo_des"/>
+    <TextView
+        android:id="@+id/todo_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="#767676"
+        android:layout_marginTop="5dp"
+        android:text="@string/input_todo_des"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="5dp"
+        android:background="#E4E4E4"/>
+</LinearLayout>

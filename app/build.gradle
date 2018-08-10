@@ -45,5 +45,5 @@ dependencies {
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
     implementation 'com.android.support:recyclerview-v7:28.0.0-beta01'
     implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
-    implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
+    //implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
 }
