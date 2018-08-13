@@ -22,8 +22,10 @@
     <string name="input_todo_des">输入待办详情，非必填，如：\n1、制作演示PPT\n2、预定会议室\n3、通知参加会议人员\n4、提前10分钟准备会议环境</string>
     <string name="save">保存</string>
     <string name="add_todo">添加待办清单</string>
+    <string name="update_todo">待办清单</string>
     <string name="input_todo_name_toast">请输入待办名称</string>
     <string name="add_todo_success">添加成功</string>
+    <string name="update_todo_success">更新成功</string>
     <string name="delete_todo_success">删除成功</string>
     <string name="done_todo_success">标记完成</string>
     <string name="notdo_todo_success">撤销完成</string>
@@ -37,4 +39,10 @@
     <string name="no_text">本宝宝暂时还没有想到详细信息</string>
     <string name="todo_name">待办名称</string>
     <string name="todo_des">待办详细</string>
+    <string name="delete_todo">删除待办清单</string>
+    <string name="sure_delete_todo">请确认是否删除？</string>
+    <string name="cancel">取消</string>
+    <string name="ok">确定</string>
+    <string name="todo_title">标题：</string>
+    <string name="des">详情：</string>
 </resources>

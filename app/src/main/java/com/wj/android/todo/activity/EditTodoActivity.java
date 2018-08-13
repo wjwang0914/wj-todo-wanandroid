@@ -2,14 +2,15 @@ package com.wj.android.todo.activity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.gson.JsonObject;
 import com.wj.android.todo.R;
 import com.wj.android.todo.activity.base.BaseActivity;
 import com.wj.android.todo.bean.TodoDesBean;
@@ -27,7 +28,7 @@ import butterknife.OnClick;
  * 作者：wangwnejie on 2018/8/8 19:21
  * 邮箱：wangwenjie1303@stnts.com
  */
-public class AddTodoActivity extends BaseActivity {
+public class EditTodoActivity extends BaseActivity {
     @BindView(R.id.title)
     TextView mTitle;
     @BindView(R.id.back)
@@ -38,18 +39,44 @@ public class AddTodoActivity extends BaseActivity {
     TextInputEditText mTodoName;
     @BindView(R.id.todo_des)
     TextInputEditText mTodoDes;
+    @BindView(R.id.save_todo)
+    Button mSaveTodo;
+
+    private TodoDesBean mTodoDesBean;
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_add_todo;
+        return R.layout.activity_edit_todo;
     }
 
     @Override
     protected void initData() {
-        mTitle.setText(R.string.add_todo);
+        mTitle.setText(R.string.update_todo);
         mBack.setVisibility(View.VISIBLE);
 
-        mTodoDate.setText(TimeUtils.date2String(new Date(),"yyyy-MM-dd"));
+        Bundle bundle = getIntent().getExtras();
+        if (bundle == null) {
+            return;
+        }
+        mTodoDesBean = (TodoDesBean) bundle.getSerializable("todo_des");
+        if (mTodoDesBean == null) {
+            return;
+        }
+        mTodoName.setText(mTodoDesBean.getTitle());
+        if (!TextUtils.isEmpty(mTodoDesBean.getContent())) {
+            mTodoDes.setText(mTodoDesBean.getContent());
+        }
+        mTodoDate.setText(mTodoDesBean.getDateStr());
+
+        if (mTodoDesBean.getStatus() == 1) {
+            mSaveTodo.setVisibility(View.GONE);
+            mTodoName.setEnabled(false);
+            mTodoName.setFocusable(false);
+            mTodoDes.setEnabled(false);
+            mTodoDes.setFocusable(false);
+            mTodoDate.setEnabled(false);
+            mTodoDate.setFocusable(false);
+        }
     }
 
     @OnClick(R.id.back)
@@ -82,19 +109,19 @@ public class AddTodoActivity extends BaseActivity {
             return;
         }
 
-        requestAddTodoData();
+        requestUpdateTodoData();
     }
 
-    private void requestAddTodoData() {
-        HttpUtils.requestAddTodoData(this, mTodoName.getText().toString(), mTodoDes.getText().toString(), mTodoDate.getText().toString());
+    private void requestUpdateTodoData() {
+        HttpUtils.requestUpdateTodoData(this, mTodoDesBean.getId(), mTodoName.getText().toString(), mTodoDes.getText().toString(), mTodoDate.getText().toString());
     }
 
     public void updateUI(ResponseItem<TodoDesBean> response) {
         if (response.isSuccess()) {
-            showToast(getString(R.string.add_todo_success));
+            showToast(getString(R.string.update_todo_success));
             Intent intent = new Intent();
-            intent.putExtra("add_todo", response.getData());
-            setResult(0x200, intent);
+            intent.putExtra("update_todo", response.getData());
+            setResult(0x210, intent);
             finish();
         }
     }

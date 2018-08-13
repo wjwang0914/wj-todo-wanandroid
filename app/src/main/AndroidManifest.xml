@@ -28,6 +28,7 @@
         <activity android:name=".activity.RegisterActivity"
             android:launchMode="singleTask"/>
         <activity android:name=".activity.AddTodoActivity" />
+        <activity android:name=".activity.EditTodoActivity" />
     </application>
 
 </manifest>

@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import com.wj.android.http.BaseView;
 import com.wj.android.http.XRetrofit;
 import com.wj.android.todo.activity.AddTodoActivity;
+import com.wj.android.todo.activity.EditTodoActivity;
 import com.wj.android.todo.activity.LoginActivity;
 import com.wj.android.todo.activity.RegisterActivity;
 import com.wj.android.todo.bean.TodoDesBean;
@@ -102,4 +103,19 @@ public class HttpUtils {
         });
     }
 
+    public static void requestUpdateTodoData(BaseView baseView, int todoId, String todoName, String todoDes, String todoDate) {
+        Map<String, String> params = new HashMap<>();
+        params.put("title", todoName);
+        if (!TextUtils.isEmpty(todoDes)) {
+            params.put("content", todoDes);
+        }
+        params.put("date", todoDate);
+
+        XRetrofit.post(buildUrl(String.format(Constant.UPDATE_TODO_URI, todoId)), params, new MyGsonCallback<ResponseItem<TodoDesBean>>(baseView) {
+            @Override
+            protected void onSuccess(ResponseItem<TodoDesBean> response, BaseView baseView) {
+                ((EditTodoActivity)baseView).updateUI(response);
+            }
+        });
+    }
 }

@@ -135,6 +135,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         Intent intent = new Intent(this, cls);
         startActivity(intent);
     }
+
     public void startActivity(Class<?> cls, Bundle bundle) {
         Intent intent = new Intent(this, cls);
         intent.putExtras(bundle);

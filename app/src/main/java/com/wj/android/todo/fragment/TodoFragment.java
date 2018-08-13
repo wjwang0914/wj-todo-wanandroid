@@ -1,9 +1,12 @@
 package com.wj.android.todo.fragment;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -12,6 +15,7 @@ import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.wj.android.todo.R;
+import com.wj.android.todo.activity.EditTodoActivity;
 import com.wj.android.todo.activity.MainActivity;
 import com.wj.android.todo.adapter.TodoSectionAdapter;
 import com.wj.android.todo.bean.TodoDesBean;
@@ -33,6 +37,7 @@ import butterknife.BindView;
  */
 public class TodoFragment extends BaseFragment {
     private static final String KEY_IS_DONE = "is_done";
+    private static final int REQUEST_CODE_EDIT_TODO = 0x110;
 
     @BindView(R.id.todo_rv)
     RecyclerView mRecyclerView;
@@ -44,6 +49,7 @@ public class TodoFragment extends BaseFragment {
     private TodoSectionAdapter mAdapter;
     private int deletePosition = -1;
     private int donePosition = -1;
+
     private boolean isDone;
 
     public static TodoFragment newInstance(boolean isDone) {
@@ -126,8 +132,7 @@ public class TodoFragment extends BaseFragment {
                                 doneTodoById(mAdapter.getData().get(position).t.getId());
                                 break;
                             case R.id.item_delete:
-                                deletePosition = position;
-                                deleteTodoById(mAdapter.getData().get(position).t.getId());
+                                showDialog(position);
                                 break;
                         }
                     }
@@ -136,7 +141,10 @@ public class TodoFragment extends BaseFragment {
                     @Override
                     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                         TodoSection todoSection = mAdapter.getData().get(position);
-                        showTodoDes(todoSection);
+                        //showTodoDes(todoSection);
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("todo_des", todoSection.t);
+                        startActivityForResult(EditTodoActivity.class, bundle, REQUEST_CODE_EDIT_TODO);
                     }
                 });
                 mAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_BOTTOM);
@@ -231,6 +239,7 @@ public class TodoFragment extends BaseFragment {
                 TodoSection section = new TodoSection(todoDesBean);
                 mAdapter.getData().add(i+1,section);
                 mAdapter.notifyItemInserted(i+1);
+                mRecyclerView.scrollToPosition(i+1);
                 return;
             }
         }
@@ -239,6 +248,7 @@ public class TodoFragment extends BaseFragment {
         TodoSection section = new TodoSection(todoDesBean);
         mAdapter.getData().add(1, section);
         mAdapter.notifyItemRangeInserted(0,2);
+        mRecyclerView.scrollToPosition(0);
     }
 
     public void updateRemovedData(ResponseItem response) {
@@ -268,6 +278,34 @@ public class TodoFragment extends BaseFragment {
             }
             showToast(getString(isDone ? R.string.notdo_todo_success : R.string.done_todo_success));
             ((MainActivity)getActivity()).updateDoneOrCancelData(response.getData(), isDone ? 0 : 1);
+        }
+    }
+
+    private void showDialog(final int position) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle(R.string.delete_todo);
+        builder.setMessage(R.string.sure_delete_todo);
+        builder.setNegativeButton(R.string.cancel,null);
+        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                deletePosition = position;
+                deleteTodoById(mAdapter.getData().get(position).t.getId());
+            }
+        });
+        builder.show();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_EDIT_TODO) {
+            switch (resultCode) {
+                case 0x210:
+                    page = 1;
+                    requestTodoListData();
+                    break;
+            }
         }
     }
 }

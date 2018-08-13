@@ -100,4 +100,16 @@ public abstract class BaseFragment extends Fragment implements BaseView {
         Intent intent = new Intent(getActivity(), cls);
         startActivity(intent);
     }
+
+    public void startActivity(Class<?> cls, Bundle bundle) {
+        Intent intent = new Intent(getActivity(), cls);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
+    public void startActivityForResult(Class<?> cls, Bundle bundle,int requestCode) {
+        Intent intent = new Intent(getActivity(), cls);
+        intent.putExtras(bundle);
+        startActivityForResult(intent, requestCode);
+    }
 }
