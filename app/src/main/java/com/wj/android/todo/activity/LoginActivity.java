@@ -1,5 +1,4 @@
 package com.wj.android.todo.activity;
-import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
