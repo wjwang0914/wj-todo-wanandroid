@@ -22,7 +22,7 @@
     <string name="input_todo_des">输入待办详情，非必填，如：\n1、制作演示PPT\n2、预定会议室\n3、通知参加会议人员\n4、提前10分钟准备会议环境</string>
     <string name="save">保存</string>
     <string name="add_todo">添加待办清单</string>
-    <string name="update_todo">待办清单</string>
+    <string name="update_todo">清单详细</string>
     <string name="input_todo_name_toast">请输入待办名称</string>
     <string name="add_todo_success">添加成功</string>
     <string name="update_todo_success">更新成功</string>
