@@ -25,12 +25,17 @@
 
 <div align="center">
 <img src="https://raw.githubusercontent.com/wjwang0914/wj-todo-wanandroid/master/screenshots/006.png" width=30%>
-<img src="https://raw.githubusercontent.com/wjwang0914/wj-todo-wanandroid/master/screenshots/007.png" width=30%>
 <img src="https://raw.githubusercontent.com/wjwang0914/wj-todo-wanandroid/master/screenshots/008.png" width=30%>
+<img src="https://raw.githubusercontent.com/wjwang0914/wj-todo-wanandroid/master/screenshots/011.png" width=30%>
 </div>
 
 <div align="center">
 <img src="https://raw.githubusercontent.com/wjwang0914/wj-todo-wanandroid/master/screenshots/009.png" width=30%>
+<img src="https://raw.githubusercontent.com/wjwang0914/wj-todo-wanandroid/master/screenshots/007.png" width=30%>
+<img src="https://raw.githubusercontent.com/wjwang0914/wj-todo-wanandroid/master/screenshots/012.png" width=30%>
+</div>
+
+<div align="center">
 <img src="https://raw.githubusercontent.com/wjwang0914/wj-todo-wanandroid/master/screenshots/010.png" width=30%>
 </div>
 
