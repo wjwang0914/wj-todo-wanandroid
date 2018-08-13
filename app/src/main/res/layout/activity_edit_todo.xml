@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp"
-            android:textColor="@android:color/black"
+            android:textColor="#B5B3B5"
             android:text="@string/todo_title"/>
         <android.support.design.widget.TextInputEditText
             android:id="@+id/todo_name"
@@ -41,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp"
-            android:textColor="@android:color/black"
+            android:textColor="#B5B3B5"
             android:gravity="top|left"
             android:text="@string/des"/>
         <android.support.design.widget.TextInputEditText
