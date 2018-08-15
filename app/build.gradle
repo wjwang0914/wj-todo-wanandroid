@@ -25,6 +25,11 @@ android {
             signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField('String', 'BASE_URL', FORMAL_BASE_URL)
+        }
+
+        debug {
+            buildConfigField('String', 'BASE_URL', TEST_BASE_URL)
         }
     }
 }

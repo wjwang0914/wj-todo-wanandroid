@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 
+import com.wj.android.todo.BuildConfig;
 import com.wj.android.todo.R;
 import com.wj.android.todo.activity.base.BaseActivity;
 import com.wj.android.todo.constant.Constant;
@@ -53,7 +54,7 @@ public class SplashActivity extends BaseActivity {
     }
 
     private void redirectTo() {
-        List<Cookie> cookies = PersistentCookieJarManager.getInstance(this).getPersistentCookieJar().loadForRequest(HttpUrl.parse(Constant.BASE_URL));
+        List<Cookie> cookies = PersistentCookieJarManager.getInstance(this).getPersistentCookieJar().loadForRequest(HttpUrl.parse(BuildConfig.BASE_URL));
         if (cookies.isEmpty()) {
             startActivity(LoginActivity.class);
         } else {

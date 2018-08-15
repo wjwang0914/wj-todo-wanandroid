@@ -2,9 +2,6 @@ package com.wj.android.todo;
 
 import android.app.Application;
 
-import com.franmontiel.persistentcookiejar.PersistentCookieJar;
-import com.franmontiel.persistentcookiejar.cache.SetCookieCache;
-import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor;
 import com.wj.android.http.XRetrofit;
 import com.wj.android.todo.manager.PersistentCookieJarManager;
 
@@ -18,7 +15,8 @@ public class MainApplication extends Application {
     public void onCreate() {
         super.onCreate();
         XRetrofit.init()
-                .debug(true)
+                .debug(BuildConfig.DEBUG)
                 .cookieJar(PersistentCookieJarManager.getInstance(this).getPersistentCookieJar());
     }
+
 }

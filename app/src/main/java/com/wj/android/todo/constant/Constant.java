@@ -5,7 +5,7 @@ package com.wj.android.todo.constant;
  * 邮箱：wangwenjie1303@stnts.com
  */
 public class Constant {
-    public static final String BASE_URL = "http://www.wanandroid.com";
+    //public static final String BASE_URL = "http://www.wanandroid.com";
 
     public static final String LOGIN_URI = "/user/login";
     public static final String REGISTER_URI = "/user/register";

@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import com.google.gson.JsonObject;
 import com.wj.android.http.BaseView;
 import com.wj.android.http.XRetrofit;
+import com.wj.android.todo.BuildConfig;
 import com.wj.android.todo.activity.AddTodoActivity;
 import com.wj.android.todo.activity.EditTodoActivity;
 import com.wj.android.todo.activity.LoginActivity;
@@ -24,7 +25,7 @@ import java.util.Map;
 public class HttpUtils {
 
     private static String buildUrl(String uri) {
-        return String.format("%s%s", Constant.BASE_URL, uri);
+        return String.format("%s%s", BuildConfig.BASE_URL, uri);
     }
 
     public static void requestLogin(BaseView baseView, String userName, String password){
