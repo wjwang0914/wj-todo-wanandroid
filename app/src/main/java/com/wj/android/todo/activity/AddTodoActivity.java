@@ -25,7 +25,7 @@ import butterknife.OnClick;
 
 /**
  * 作者：wangwnejie on 2018/8/8 19:21
- * 邮箱：wangwenjie1303@stnts.com
+ * 邮箱：wang20080990@163.com
  */
 public class AddTodoActivity extends BaseActivity {
     @BindView(R.id.title)

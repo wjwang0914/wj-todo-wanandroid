@@ -19,7 +19,7 @@ import okhttp3.Cookie;
 
 /**
  * 作者：wangwnejie on 2018/8/8 13:42
- * 邮箱：wangwenjie1303@stnts.com
+ * 邮箱：wang20080990@163.com
  */
 public class SettingFragment extends BaseFragment {
     @BindView(R.id.user_name)

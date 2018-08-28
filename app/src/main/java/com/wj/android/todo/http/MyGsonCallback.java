@@ -7,7 +7,7 @@ import com.wj.android.todo.exception.ApiException;
 
 /**
  * 作者：wangwnejie on 2018/8/8 13:57
- * 邮箱：wangwenjie1303@stnts.com
+ * 邮箱：wang20080990@163.com
  */
 public abstract class MyGsonCallback<T> extends GsonCallback<T> {
 

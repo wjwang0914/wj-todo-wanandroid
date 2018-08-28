@@ -2,7 +2,7 @@ package com.wj.android.todo.constant;
 
 /**
  * 作者：wangwnejie on 2018/8/7 15:24
- * 邮箱：wangwenjie1303@stnts.com
+ * 邮箱：wang20080990@163.com
  */
 public class Constant {
     //public static final String BASE_URL = "http://www.wanandroid.com";
