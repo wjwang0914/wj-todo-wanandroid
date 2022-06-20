@@ -58,8 +58,8 @@ public class LoginActivity extends BaseActivity{
     }
 
     @Override
-    protected boolean isLoadingEnable() {
-        return true;
+    public boolean isLoadingEnable(int requestId) {
+        return super.isLoadingEnable(requestId);
     }
 
     private void requestLogin() {

@@ -194,7 +194,7 @@ public class TodoFragment extends BaseFragment {
     }
 
     @Override
-    protected boolean isLoadingEnable(int requestId) {
+    public boolean isLoadingEnable(int requestId) {
         return requestId == 1;
     }
 
@@ -211,8 +211,8 @@ public class TodoFragment extends BaseFragment {
     }
 
     @Override
-    public void error(Throwable t, int requestId) {
-        super.error(t,requestId);
+    public void error(Throwable t, int code, int requestId) {
+        super.error(t,code,requestId);
         if (requestId == 0) {
             if (page > 1) {
                 mAdapter.loadMoreFail();

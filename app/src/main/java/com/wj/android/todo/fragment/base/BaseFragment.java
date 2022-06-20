@@ -58,7 +58,7 @@ public abstract class BaseFragment extends Fragment implements BaseView {
      */
     protected abstract void initData();
 
-    protected boolean isLoadingEnable(int requestId) {
+    public boolean isLoadingEnable(int requestId) {
         return false;
     }
 
@@ -74,7 +74,7 @@ public abstract class BaseFragment extends Fragment implements BaseView {
     }
 
     @Override
-    public void error(Throwable t, int requestId) {
+    public void error(Throwable t, int code, int requestId) {
         if (isAdded()) {
             if (t instanceof ApiException) {
                 showToast(t.getMessage());

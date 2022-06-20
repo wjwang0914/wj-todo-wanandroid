@@ -127,7 +127,7 @@ public class EditTodoActivity extends BaseActivity {
     }
 
     @Override
-    protected boolean isLoadingEnable() {
-        return true;
+    public boolean isLoadingEnable(int requestId) {
+        return super.isLoadingEnable(requestId);
     }
 }

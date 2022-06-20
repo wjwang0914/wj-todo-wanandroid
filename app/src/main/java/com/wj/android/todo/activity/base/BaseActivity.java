@@ -70,7 +70,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     protected void onDestroy() {
         super.onDestroy();
         Log.i(TAG, String.format("%s:onDestroy", this));
-        if (isLoadingEnable() && mProgressDialog != null) {
+        if (mProgressDialog != null) {
             mProgressDialog.dismiss();
         }
 
@@ -96,13 +96,14 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
      */
     protected void applyEvent(){}
 
-    protected boolean isLoadingEnable() {
+    @Override
+    public boolean isLoadingEnable(int requestId) {
         return false;
     }
 
     @Override
     public void start(int requestId) {
-        if (isLoadingEnable() && !isFinishing()) {
+        if (isLoadingEnable(requestId) && !isFinishing()) {
             mProgressDialog = new ProgressDialog(this,ProgressDialog.THEME_HOLO_LIGHT);
             mProgressDialog.setCanceledOnTouchOutside(false);
             mProgressDialog.setCancelable(false);
@@ -112,7 +113,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     }
 
     @Override
-    public void error(Throwable t, int requestId) {
+    public void error(Throwable t, int code, int requestId) {
         if (t instanceof ApiException) {
             showToast(t.getMessage());
         } else {
@@ -122,7 +123,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
 
     @Override
     public void end(int requestId) {
-        if (isLoadingEnable() && !isFinishing()) {
+        if (isLoadingEnable(requestId) && !isFinishing()) {
             mProgressDialog.dismiss();
         }
     }
